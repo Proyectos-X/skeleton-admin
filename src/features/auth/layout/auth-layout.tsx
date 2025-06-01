@@ -1,10 +1,11 @@
-import { Outlet } from "react-router";
+import GradientLayout from '@/app/layouts/gradient-layout';
+import { Outlet } from 'react-router';
 
 const AuthLayout = () => {
   return (
-    <div>
+    <GradientLayout>
       <Outlet />
-    </div>
+    </GradientLayout>
   );
 };
 

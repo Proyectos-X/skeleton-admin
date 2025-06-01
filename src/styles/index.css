@@ -6,11 +6,13 @@
 :root {
   --background: #faf9f5;
   --foreground: #3d3929;
+  --foreground-opacity: #3d392967;
   --card: #faf9f5;
   --card-foreground: #141413;
   --popover: #ffffff;
   --popover-foreground: #28261b;
   --primary: #c96442;
+  --primary-opacity: #d9785765;
   --primary-foreground: #ffffff;
   --secondary: #e9e6dc;
   --secondary-foreground: #535146;
@@ -69,6 +71,7 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-opacity: var(--primary-opacity);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -117,11 +120,13 @@
 .dark {
   --background: #262624;
   --foreground: #c3c0b6;
+  --foreground-opacity: #c3c0b63d;
   --card: #262624;
   --card-foreground: #faf9f5;
   --popover: #30302e;
   --popover-foreground: #e5e5e2;
   --primary: #d97757;
+  --primary-opacity: #d9785757;
   --primary-foreground: #ffffff;
   --secondary: #faf9f5;
   --secondary-foreground: #30302e;

@@ -29,7 +29,8 @@
       "@hooks/*": ["app/hooks/*"],
       "@utils/*": ["app/utils/*"],
       "@styles/*": ["styles/*"],
-      "@features/*": ["features/*"]
+      "@features/*": ["features/*"],
+      "@shared/*": ["shared/*"]
     }
   },
   "include": ["src"]
