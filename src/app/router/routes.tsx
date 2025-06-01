@@ -1,32 +1,28 @@
-import { createBrowserRouter, Navigate } from 'react-router';
-import DashboarLayout from '../layouts/dashboar-layout';
-import NotFound from '../pages/not-found';
-import LoginPage from '@/features/auth/page/login-page';
-import RegisterPage from '@/features/auth/page/register-page';
-import CoursePage from '@/features/course/pages/course-page';
-import AuthLayout from '@/features/auth/layout/auth-layout';
-
-
+import { createBrowserRouter, Navigate } from "react-router";
+import DashboarLayout from "../layouts/dashboar-layout";
+import NotFound from "../pages/not-found";
+import LoginPage from "@/features/auth/page/login-page";
+import RegisterPage from "@/features/auth/page/register-page";
+import CoursePage from "@/features/course/pages/course-page";
+import AuthLayout from "@/features/auth/layout/auth-layout";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <DashboarLayout />,
-    children: [
-      { index: true, element: <CoursePage/> },
-    ],
+    children: [{ index: true, element: <CoursePage /> }],
   },
   {
-    path: '/auth',
-    element: <AuthLayout/>,
+    path: "/auth",
+    element: <AuthLayout />,
     children: [
       { index: true, element: <Navigate to="login" replace /> },
-      { path: 'login', element: <LoginPage/> },
-      { path: 'register', element: <RegisterPage/> },
+      { path: "login", element: <LoginPage /> },
+      { path: "register", element: <RegisterPage /> },
     ],
   },
   {
-    path: '*',
+    path: "*",
     element: <NotFound />,
   },
 ]);
