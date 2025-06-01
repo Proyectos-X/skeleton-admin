@@ -3,14 +3,13 @@ import DashboarLayout from "../layouts/dashboar-layout";
 import NotFound from "../pages/not-found";
 import LoginPage from "@/features/auth/page/login-page";
 import RegisterPage from "@/features/auth/page/register-page";
-import CoursePage from "@/features/course/pages/course-page";
 import AuthLayout from "@/features/auth/layout/auth-layout";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <DashboarLayout />,
-    children: [{ index: true, element: <CoursePage /> }],
+    children: [{ index: true, element: <></> }],
   },
   {
     path: "/auth",

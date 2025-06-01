@@ -3,6 +3,14 @@ import { AppSidebar, SidebarInset, SidebarProvider, SidebarTrigger } from '@/sha
 import GradientLayout from './gradient-layout';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Separator } from '@/shared/components/ui';
 
+/**
+ * `DashboardLayout` es un layout de alto nivel para pantallas internas de la aplicación,
+ * que incluye:
+ * 
+ * - Fondo visual mediante `GradientLayout`.
+ * - Sidebar lateral con contexto de apertura/cierre.
+ * - Encabezado con breadcrumbs y botón para controlar la visibilidad del sidebar.
+ */
 const DashboarLayout = () => {
   return (
     <GradientLayout>

@@ -1,5 +1,9 @@
 import type { ReactNode } from 'react';
 
+/**
+ * `GradientLayout` es un componente de diseño que envuelve su contenido con un fondo decorativo
+ * compuesto por dos capas: una cuadrícula radial y un gradiente suave.
+ */
 const GradientLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="relative h-screen w-full bg-background">

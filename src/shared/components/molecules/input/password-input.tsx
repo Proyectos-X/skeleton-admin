@@ -15,16 +15,6 @@ import { Input } from '../../ui/input';
  *
  * @component
  * @returns {JSX.Element}
- *
- * @example
- * ```tsx
- * <PasswordInput />
- * ```
- *
- * @accessibility
- * - Usa `aria-label` y `aria-pressed` para accesibilidad del botón.
- * - El botón tiene `aria-controls` que vincula con el `id` generado del input.
- * - Soporta navegación con teclado y lectores de pantalla.
  */
 export default function PasswordInput({ ...props }: React.ComponentProps<'input'>) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -60,13 +50,11 @@ export default function PasswordInput({ ...props }: React.ComponentProps<'input'
 }
 
 /**
- * `PasswordField` es un componente encapsulado para manejar inputs de contraseña
- * con integración directa con `react-hook-form`, validación y error visual.
- *
- * @example
- * ```tsx
- * <PasswordField name="password" />
- * ```
+ * `PasswordField` es un componente de formulario controlado que integra `PasswordInput` 
+ * con `react-hook-form`, incluyendo validación, manejo de errores y etiquetas.
+ * 
+ * Internamente utiliza el adaptador `FormFieldAdapter` para facilitar la conexión
+ * con formularios complejos y esquemas como Zod
  */
 export function PasswordField({
   name,

@@ -17,6 +17,30 @@ interface AdvancedInputProps extends React.InputHTMLAttributes<HTMLInputElement>
   clearable?: boolean;
 }
 
+/**
+ * `AdvancedInput` es un campo de entrada enriquecido que ofrece funcionalidades
+ * avanzadas como iconos, prefijos, sufijos, contador de caracteres y limpieza del input.
+ *
+ * Se puede usar como componente controlado (usando `value` y `onChange`)
+ * o como componente no controlado (internamente usa `useState`).
+ *
+ * @component
+ *
+ * @param {string} [label] - Etiqueta visible asociada al input.
+ * @param {React.ReactNode} [iconStart] - Ícono o elemento al inicio del input.
+ * @param {React.ReactNode} [iconEnd] - Ícono o elemento al final del input.
+ * @param {string} [prefix] - Texto estático al inicio del campo (ej: símbolo de moneda).
+ * @param {string} [suffix] - Texto estático al final del campo (ej: unidades).
+ * @param {boolean} [showCharCount] - Muestra contador de caracteres si es `true`.
+ * @param {number} [maxLength] - Límite máximo de caracteres permitidos.
+ * @param {boolean} [clearable=false] - Muestra botón para limpiar el campo.
+ * @param {string | number | readonly string[]} [value] - Valor del input si es controlado.
+ * @param {(e: React.ChangeEvent<HTMLInputElement>) => void} [onChange] - Función llamada al cambiar el valor.
+ * @param {string} [className] - Clases CSS adicionales para personalizar el estilo.
+ * @param {React.InputHTMLAttributes<HTMLInputElement>} rest - Todos los demás props estándar de `<input>`.
+ *
+ * @returns {JSX.Element} Elemento de entrada enriquecido.
+ */
 
 export function AdvancedInput({
   label,
@@ -127,7 +151,10 @@ export function AdvancedInput({
 }
 
 type AdvancedInputFieldProps = AdapterFieldProps & Omit<AdvancedInputProps, "value" | "onChange" | "onBlur" | "name"> 
-
+/**
+ * `AdvancedInputField` es un wrapper para `AdvancedInput` que lo conecta automáticamente
+ * con `react-hook-form` usando `FormFieldAdapter`, gestionando errores, validación y sincronización.
+ */
 export function AdvancedInputField({
   name,
   rules,
