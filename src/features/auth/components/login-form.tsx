@@ -4,22 +4,20 @@ import { loginSchema, type LoginFormValues } from '../lib/auth-validation';
 import { MailIcon } from 'lucide-react';
 import { AdvancedInputField, PasswordField } from '@/shared/components/molecules';
 import { Button } from '@/shared/components/ui';
+import { useLogin } from '../hooks/use-login';
 
 export function LoginForm() {
   const form = useZodForm(loginSchema, {
     defaultValues: {
       email: '',
-      password: 'gdfgdfgfd',
+      password: '',
     },
   });
 
+  const login = useLogin();
+
   const onSubmit = async (data: LoginFormValues) => {
-    try {
-      console.log('Datos del formulario:', data);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-    } catch (error) {
-      console.error('Error al iniciar sesión:', error);
-    }
+    login.mutate(data);
   };
 
   return (
@@ -31,8 +29,8 @@ export function LoginForm() {
         iconEnd={<MailIcon size={16} />}
       />
       <PasswordField name="password" />
-      <Button type="submit" className="w-full">
-        Iniciar sesión
+      <Button type="submit" className="w-full" disabled={login.isPending}>
+        {login.isPending ? 'Cargando...' : 'Iniciar sesión'}
       </Button>
     </Form>
   );

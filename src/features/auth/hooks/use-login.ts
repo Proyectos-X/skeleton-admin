@@ -5,10 +5,9 @@ import { useApiMutation } from '@/shared/hooks';
 
 export function useLogin() {
   return useApiMutation<LoginResponse, LoginDto>({
-    url: '/api/auth/login',
+    url: '/auth/login',
     onSuccess: (data) => {
       console.log(data);
-      
       toast.success('Inicio de sesión exitoso');
       // guardar tokens, redireccionar, etc.
     },

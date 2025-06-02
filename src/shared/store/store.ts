@@ -22,7 +22,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  devTools: import.meta.env.DEV,
+  devTools: import.meta.env.VITE_DEV,
 });
 
 export const persistor = persistStore(store);

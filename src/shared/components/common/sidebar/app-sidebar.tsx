@@ -19,23 +19,9 @@ const data = {
   teams: [
     {
       name: "InnovaCraft",
-      logo: "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/exp1/logo-01_kp2j8x.png",
-    },
-    {
-      name: "Acme Corp.",
-      logo: "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/exp1/logo-01_kp2j8x.png",
-    },
-    {
-      name: "Evil Corp.",
-      logo: "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/exp1/logo-01_kp2j8x.png",
-    },
+      logo: "https://i.pinimg.com/736x/21/94/29/219429747dc271e879e24471e8d341a4.jpg",
+    }
   ],
-  user: {
-    name: "Mark Bannert",
-    email: "mark@bannert.com",
-    avatar:
-      "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/exp3/user_itiiaq.png",
-  },
   navMain: [
     {
       title: "General",
