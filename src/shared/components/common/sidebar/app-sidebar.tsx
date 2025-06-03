@@ -76,7 +76,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" variant="inset" {...props}>
       <SidebarHeader className="rounded-md h-16 max-md:mt-2 mb-2 justify-center">
-        <StoreSwitcher stores={data.teams} />
+        <StoreSwitcher/>
         <hr className="border-t border-border mx-2 -mt-px" />
       </SidebarHeader>
       <SidebarContent className="-mt-2">

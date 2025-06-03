@@ -1,6 +1,5 @@
-import * as React from "react";
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./sidebar";
-import { ArrowDown, CheckLineIcon } from "lucide-react";
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from './sidebar';
+import { ArrowDown, CheckLineIcon } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,8 +8,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "../../ui/dropdown-menu";
-
+} from '../../ui/dropdown-menu';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import type { RootState } from '@/shared/store';
+import { setActiveTenant } from '@/features/auth/store/auth-slice';
 
 /**
  * `StoreSwitcher` es un componente interactivo que permite al usuario seleccionar una tienda (store)
@@ -19,17 +21,19 @@ import {
  * entre tiendas activas con un diseño compacto y accesible.
  * @warning Este componente aun esta en desarrollo.
  */
-export function StoreSwitcher({
-  stores,
-}: {
-  stores: {
-    name: string;
-    logo: string;
-  }[];
-}) {
-  const [activeTeam, setActiveTeam] = React.useState(stores[0] ?? null);
+export function StoreSwitcher() {
+  const dispatch = useDispatch();
+  const tenants = useSelector((state: RootState) => state.auth.tenants);
+  const activeTenant = useSelector((state: RootState) => state.auth.activeTenant);
 
-  if (!stores.length) return null;
+  if (!tenants.length) return null;
+
+  const handleSelect = (tenantId: string) => {
+    const selected = tenants.find((t) => t.id === tenantId);
+    if (selected) {
+      dispatch(setActiveTenant(selected));
+    }
+  };
 
   return (
     <SidebarMenu>
@@ -41,18 +45,11 @@ export function StoreSwitcher({
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground gap-3 [&>svg]:size-auto"
             >
               <div className="flex aspect-square size-8 items-center justify-center rounded-md overflow-hidden bg-sidebar-primary text-sidebar-primary-foreground">
-                {activeTeam && (
-                  <img
-                    src={activeTeam.logo}
-                    width={36}
-                    height={36}
-                    alt={activeTeam.name}
-                  />
-                )}
+                {activeTenant?.name?.charAt(0).toUpperCase()}
               </div>
               <div className="grid flex-1 text-left text-base leading-tight">
                 <span className="truncate font-medium">
-                  {activeTeam?.name ?? "Select a Team"}
+                  {activeTenant?.name ?? 'Selecciona una tienda'}
                 </span>
               </div>
               <ArrowDown
@@ -69,29 +66,27 @@ export function StoreSwitcher({
             sideOffset={4}
           >
             <DropdownMenuLabel className="uppercase text-muted-foreground/60 text-xs">
-              stores
+              Tiendas
             </DropdownMenuLabel>
-            {stores.map((team, index) => (
+            {tenants.map((tenant) => (
               <DropdownMenuItem
-                key={team.name}
-                onClick={() => setActiveTeam(team)}
+                key={tenant.id}
+                onClick={() => handleSelect(tenant.id)}
                 className="gap-2 p-2"
               >
-                <div className="flex size-6 items-center justify-center rounded-md overflow-hidden">
-                  <img src={team.logo} width={36} height={36} alt={team.name} />
+                <div className="flex size-6 items-center justify-center rounded-md bg-muted text-muted-foreground font-semibold">
+                  {tenant.name.charAt(0).toUpperCase()}
                 </div>
-                {team.name}
-                <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
+                {tenant.name}
+                {tenant.id === activeTenant?.id && (
+                  <DropdownMenuShortcut>Activa</DropdownMenuShortcut>
+                )}
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
             <DropdownMenuItem className="gap-2 p-2">
-              <CheckLineIcon
-                className="opacity-60"
-                size={16}
-                aria-hidden="true"
-              />
-              <div className="font-medium">Add team</div>
+              <CheckLineIcon className="opacity-60" size={16} aria-hidden="true" />
+              <div className="font-medium">Agregar tienda</div>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

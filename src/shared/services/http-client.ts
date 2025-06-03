@@ -6,9 +6,18 @@ export const httpClient = axios.create({
 });
 
 httpClient.interceptors.request.use((config) => {
-  const token = store.getState().auth.token;
+  const state = store.getState();
+  const token = state.auth.accessToken;
+  const tenantId = state.auth.activeTenant?.id;
+
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+
+  if (tenantId) {
+    config.headers['x-tenant-id'] = tenantId;
+  }
+  
   return config;
 });
+

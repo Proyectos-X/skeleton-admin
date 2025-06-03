@@ -4,7 +4,7 @@ import { loginSchema, type LoginFormValues } from '../lib/auth-validation';
 import { MailIcon } from 'lucide-react';
 import { AdvancedInputField, PasswordField } from '@/shared/components/molecules';
 import { Button } from '@/shared/components/ui';
-import { useLogin } from '../hooks/use-login';
+import { useInitAuth, useLogin } from '../hooks/use-login';
 
 export function LoginForm() {
   const form = useZodForm(loginSchema, {
@@ -15,9 +15,11 @@ export function LoginForm() {
   });
 
   const login = useLogin();
+  const initAuth = useInitAuth();
 
   const onSubmit = async (data: LoginFormValues) => {
-    login.mutate(data);
+    await login.mutateAsync(data);
+    await initAuth();
   };
 
   return (
