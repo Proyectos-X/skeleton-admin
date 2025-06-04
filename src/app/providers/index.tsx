@@ -2,7 +2,7 @@ import React from 'react';
 import ReduxProvider from './redux-provider';
 import { TanstackProvider } from './query-client-provider';
 import { ThemeProvider } from '../../shared/theme/context/theme-provider';
-import { Toaster } from '@/shared/components/ui';
+import { Toaster } from '@/app/components/ui';
 
 /**
  * `AppProvider` es un proveedor global de contexto que encapsula múltiples contextos esenciales para la aplicación,

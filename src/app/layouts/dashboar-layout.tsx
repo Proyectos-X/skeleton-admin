@@ -3,7 +3,7 @@ import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from '@/shared/components/common';
+} from '@/app/components/common';
 import GradientLayout from './gradient-layout';
 import {
   Breadcrumb,
@@ -13,8 +13,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
   Separator,
-} from '@/shared/components/ui';
-import PrivateRoute from '@/shared/components/common/private-route';
+} from '@/app/components/ui';
+import PrivateRoute from '@/app/components/common/private-route';
 
 /**
  * `DashboardLayout` es un layout de alto nivel para pantallas internas de la aplicación,

@@ -2,9 +2,9 @@ import { Form, useZodForm } from '@/shared/form';
 import { loginSchema, type LoginFormValues } from '../lib/auth-validation';
 
 import { MailIcon } from 'lucide-react';
-import { AdvancedInputField, PasswordField } from '@/shared/components/molecules';
-import { Button } from '@/shared/components/ui';
-import { useInitAuth, useLogin } from '../hooks/use-login';
+import { useLogin } from '../hooks/use-login';
+import { AdvancedInputField, PasswordField } from '@/app/components/molecules';
+import { Button } from '@/app/components/ui';
 
 export function LoginForm() {
   const form = useZodForm(loginSchema, {
@@ -15,11 +15,9 @@ export function LoginForm() {
   });
 
   const login = useLogin();
-  const initAuth = useInitAuth();
 
   const onSubmit = async (data: LoginFormValues) => {
-    await login.mutateAsync(data);
-    await initAuth();
+    login.mutate(data);
   };
 
   return (

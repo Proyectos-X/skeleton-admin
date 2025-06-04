@@ -3,8 +3,7 @@ import { Label } from "../../ui/label";
 import { Input } from "../../ui/input";
 import clsx from "clsx";
 import { CircleXIcon } from "lucide-react";
-import { FormFieldAdapter } from "../../../form/adapters/form-field-adapter";
-import type { AdapterFieldProps } from "../../../form/types/adapter-field-type";
+import { FormFieldAdapter, type AdapterFieldProps } from "@/shared/form";
 
 interface AdvancedInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;

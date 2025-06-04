@@ -1,4 +1,5 @@
-import { useAuthStatus } from '@/features/auth/hooks/use-auth-status';
+
+import { useAuthStatus } from '@/app/features/auth/hooks/use-auth-status';
 import type { RootState } from '@/shared/store';
 import type { JSX } from 'react';
 import { useSelector } from 'react-redux';

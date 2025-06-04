@@ -1,8 +1,8 @@
 import { createBrowserRouter, Navigate } from "react-router";
 import DashboarLayout from "../layouts/dashboar-layout";
 import NotFound from "../pages/not-found";
-import LoginPage from "@/features/auth/page/login-page";
-import AuthLayout from "@/features/auth/layout/auth-layout";
+import LoginPage from "@/app/features/auth/page/login-page";
+import AuthLayout from "@/app/features/auth/layout/auth-layout";
 
 export const router = createBrowserRouter([
   {

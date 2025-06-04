@@ -1,4 +1,5 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui';
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui';
 import { LoginForm } from '../components/login-form';
 
 const LoginPage = () => {

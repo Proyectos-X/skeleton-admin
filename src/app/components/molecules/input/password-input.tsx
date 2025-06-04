@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
-import { FormFieldAdapter } from '../../../form/adapters/form-field-adapter';
-import type { AdapterFieldProps } from '../../../form/types/adapter-field-type';
 import { Input } from '../../ui/input';
+import { FormFieldAdapter, type AdapterFieldProps } from '@/shared/form';
 
 /**
  * `PasswordInput` es un componente de formulario reutilizable que permite mostrar u ocultar

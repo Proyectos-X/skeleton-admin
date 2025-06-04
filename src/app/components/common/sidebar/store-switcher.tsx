@@ -12,7 +12,8 @@ import {
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@/shared/store';
-import { setActiveTenant } from '@/features/auth/store/auth-slice';
+import { setActiveTenant } from '@/app/features/auth/store/auth-slice';
+import type { Tenant } from '@/app/features/auth/interfaces/tenant';
 
 /**
  * `StoreSwitcher` es un componente interactivo que permite al usuario seleccionar una tienda (store)
@@ -23,7 +24,7 @@ import { setActiveTenant } from '@/features/auth/store/auth-slice';
  */
 export function StoreSwitcher() {
   const dispatch = useDispatch();
-  const tenants = useSelector((state: RootState) => state.auth.tenants);
+  const tenants: Tenant[] = useSelector((state: RootState) => state.auth.tenants);
   const activeTenant = useSelector((state: RootState) => state.auth.activeTenant);
 
   if (!tenants.length) return null;
