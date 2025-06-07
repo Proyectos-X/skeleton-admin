@@ -16,7 +16,7 @@ import { Toaster } from '@/app/components/ui';
 export const AppProvider = ({ children }: { children: React.ReactNode }) => (
   <ReduxProvider>
     <TanstackProvider>
-      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
         {children}
         <Toaster />
       </ThemeProvider>

@@ -1,25 +1,38 @@
-import { createBrowserRouter, Navigate } from "react-router";
-import DashboarLayout from "../layouts/dashboar-layout";
-import NotFound from "../pages/not-found";
-import LoginPage from "@/app/features/auth/page/login-page";
-import AuthLayout from "@/app/features/auth/layout/auth-layout";
+import { createBrowserRouter, Navigate } from 'react-router';
+import DashboarLayout from '../layouts/dashboar-layout';
+import NotFound from '../pages/not-found';
+import LoginPage from '@/app/features/auth/page/login-page';
+import ProductPage from '../features/products/page/product-page';
+import { ProductCreate } from '../features/products/page/product-create';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <DashboarLayout />,
-    children: [{ index: true, element: <></> }],
-  },
-  {
-    path: "/auth",
-    element: <AuthLayout />,
     children: [
-      { index: true, element: <Navigate to="login" replace /> },
-      { path: "login", element: <LoginPage /> },
+      {
+        path: '/products',
+        element: <ProductPage />,
+        children:[
+          {
+            path: 'create',
+            element: <ProductCreate/>
+          }
+        ]
+      },
+
     ],
   },
   {
-    path: "*",
+    path: '/auth',
+    element: <LoginPage />,
+    children: [
+      { index: true, element: <Navigate to="login" replace /> },
+      { path: 'login', element: <LoginPage /> },
+    ],
+  },
+  {
+    path: '*',
     element: <NotFound />,
   },
 ]);

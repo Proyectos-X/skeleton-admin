@@ -15,14 +15,14 @@ export default function PrivateRoute({ children, requiredRole }: PrivateRoutePro
   const { isAuthenticated } = useAuthStatus();
   const location = useLocation();
 
-  if (!isAuthenticated) {
-    const redirectUrl = encodeURIComponent(location.pathname + location.search);
-    return <Navigate to={`/auth/login?redirectUrl=${redirectUrl}`} replace />;
-  }
+  // if (!isAuthenticated) {
+  //   const redirectUrl = encodeURIComponent(location.pathname + location.search);
+  //   return <Navigate to={`/auth/login?redirectUrl=${redirectUrl}`} replace />;
+  // }
 
-  if (requiredRole && roles && !roles.includes(requiredRole)) {
-    return <Navigate to="/unauthorized" replace />;
-  }
+  // if (requiredRole && roles && !roles.includes(requiredRole)) {
+  //   return <Navigate to="/unauthorized" replace />;
+  // }
 
   return children;
 }

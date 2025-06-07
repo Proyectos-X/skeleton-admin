@@ -36,6 +36,7 @@
     "sonner": "^2.0.4",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.8",
+    "vaul": "^1.1.2",
     "vite-tsconfig-paths": "^5.1.4",
     "zod": "^3.25.46"
   },

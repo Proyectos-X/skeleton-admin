@@ -15,6 +15,7 @@ import {
   Separator,
 } from '@/app/components/ui';
 import PrivateRoute from '@/app/components/common/private-route';
+import { Outlet } from 'react-router';
 
 /**
  * `DashboardLayout` es un layout de alto nivel para pantallas internas de la aplicación,
@@ -31,7 +32,7 @@ const DashboarLayout = () => {
         <SidebarProvider>
           <AppSidebar />
           <SidebarInset className="overflow-hidden px-4 md:px-6 lg:px-8 bg-background/50 backdrop-blur-3xl">
-            <header className="flex flex-wrap gap-3 min-h-20 py-4 shrink-0 items-center transition-all ease-linear border-b">
+            <header className="flex flex-wrap gap-3 py-4 shrink-0 items-center transition-all ease-linear border-b">
               {/* Left side */}
               <div className="flex flex-1 items-center gap-2">
                 <SidebarTrigger className="-ms-1" />
@@ -55,6 +56,9 @@ const DashboarLayout = () => {
               </div>
               {/* Right side */}
             </header>
+            <section className='py-4'>
+              <Outlet/>
+            </section>
           </SidebarInset>
         </SidebarProvider>
       </GradientLayout>
