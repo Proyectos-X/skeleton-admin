@@ -6,6 +6,7 @@ import { StackedModalProvider } from "../stacked-modal-provider"
 import { useRouteModal } from "../route-modal-provider/use-route-modal"
 import { FocusModal } from "@/app/components/molecules/modal/focus-modal"
 import { cn } from "@/shared/utils"
+import { RouteModalForm } from "../route-modal-form"
 
 type RouteFocusModalProps = PropsWithChildren<{
   /** Ruta previa a la que se volverá al cerrar el modal */
@@ -105,6 +106,7 @@ const Title = FocusModal.Title
 const Description = FocusModal.Description
 const Footer = FocusModal.Footer
 const Body = FocusModal.Body
+const Form = RouteModalForm
 
 
 export const RouteFocusModal = Object.assign(Root, {
@@ -113,4 +115,5 @@ export const RouteFocusModal = Object.assign(Root, {
   Body,
   Description,
   Footer,
+  Form
 })

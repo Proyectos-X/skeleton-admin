@@ -1,26 +1,36 @@
 import { createBrowserRouter, Navigate } from 'react-router';
 import DashboarLayout from '../layouts/dashboar-layout';
 import NotFound from '../pages/not-found';
-import ProductPage from '../features/products/page/product-page';
-import { ProductCreate } from '../features/products/page/product-create';
 import LoginPage from '../features/auth/login/login-page';
+import { ErrorBoundary } from '../components/common/error-boundary';
+import ProductPage from '../features/products/product-list/product-page';
+import ProductCreate from '../features/products/product-edit/product-create';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <DashboarLayout />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         path: '/products',
-        element: <ProductPage />,
-        children:[
+        errorElement: <ErrorBoundary />,
+        handle: {
+          breadcrumb: () => "Products",
+        },
+        children: [
           {
-            path: 'create',
-            element: <ProductCreate/>
-          }
-        ]
+            path: '',
+            element: <ProductPage />,
+            children: [
+              {
+                path: 'create',
+                element: <ProductCreate />,
+              },
+            ],
+          },
+        ],
       },
-
     ],
   },
   {

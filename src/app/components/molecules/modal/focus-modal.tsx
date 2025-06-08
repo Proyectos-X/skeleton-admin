@@ -72,6 +72,7 @@ const FocusModalOverlay = React.forwardRef<
       ref={ref}
       className={cn(
         "bg-black/50 fixed inset-0 backdrop-blur-sm",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         className
       )}
       {...props}
@@ -103,7 +104,8 @@ const FocusModalContent = React.forwardRef<
       <DialogContent
         ref={ref}
         className={cn(
-          "bg-white rounded-lg shadow-xl border max-w-2xl w-full p-6 animate-in fade-in zoom-in-95",
+          "bg-background  rounded-lg shadow-xl border p-6 animate-in fade-in zoom-in-95",
+          "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-bottom-0 data-[state=closed]:slide-in-from-bottom-2  duration-200",
           className
         )}
         {...props}

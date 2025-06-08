@@ -13,6 +13,7 @@ import {
   DrawerTitle,
 } from '@/app/components/ui/drawer'
 import clsx from 'clsx'
+import { RouteModalForm } from '../route-modal-form'
 
 /**
  * Props del componente RouteDrawer.
@@ -102,6 +103,7 @@ const Description = DrawerDescription
 const Body = DrawerContent
 const Footer = DrawerFooter
 const Close = DrawerClose
+const Form = RouteModalForm
 
 /**
  * Componente exportado que encapsula toda la lógica de un Drawer enroutable.
@@ -118,4 +120,5 @@ export const RouteDrawer = Object.assign(Root, {
   Description,
   Footer,
   Close,
+  Form
 })
