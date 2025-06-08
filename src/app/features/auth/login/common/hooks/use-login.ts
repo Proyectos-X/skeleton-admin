@@ -1,12 +1,12 @@
 
 import { toast } from 'sonner';
-import type { LoginDto, LoginResponse } from '../interfaces/dto';
+import type { LoginDto, LoginResponse } from '../../../common/interfaces/dto';
 import { useApiMutation } from '@/shared/hooks';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router';
-import { setTokens } from '../store/auth-slice';
+import { setTokens } from '../../../common/store/auth-slice';
 import type { AppDispatch } from '@/shared/store';
-import { loadPreferences, loadTenants } from '../store/auth-thunk';
+import { loadPreferences, loadTenants } from '../../../common/store/auth-thunk';
 
 export function useLogin() {
   const dispatch = useDispatch<AppDispatch>();

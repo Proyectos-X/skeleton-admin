@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { store } from '../store/store';
-import { clearAuth, setTokens } from '@/app/features/auth/store/auth-slice';
+import { clearAuth, setTokens } from '@/app/features/auth/common/store/auth-slice';
 
 export const httpClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,

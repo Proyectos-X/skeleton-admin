@@ -1,9 +1,9 @@
 import { createBrowserRouter, Navigate } from 'react-router';
 import DashboarLayout from '../layouts/dashboar-layout';
 import NotFound from '../pages/not-found';
-import LoginPage from '@/app/features/auth/page/login-page';
 import ProductPage from '../features/products/page/product-page';
 import { ProductCreate } from '../features/products/page/product-create';
+import LoginPage from '../features/auth/login/login-page';
 
 export const router = createBrowserRouter([
   {

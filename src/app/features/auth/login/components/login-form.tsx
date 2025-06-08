@@ -1,10 +1,10 @@
 import { Form, useZodForm } from '@/shared/form';
-import { loginSchema, type LoginFormValues } from '../lib/auth-validation';
 
 import { MailIcon } from 'lucide-react';
-import { useLogin } from '../hooks/use-login';
 import { AdvancedInputField, PasswordField } from '@/app/components/molecules';
 import { Button } from '@/app/components/ui';
+import { loginSchema, type LoginFormValues } from '../common/lib/auth-validation';
+import { useLogin } from '../common/hooks/use-login';
 
 export function LoginForm() {
   const form = useZodForm(loginSchema, {

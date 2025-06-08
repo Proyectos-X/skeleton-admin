@@ -1,5 +1,6 @@
-import { AppProvider } from './app/providers';
+
 import { router } from './app/router/routes';
+import { AppProvider } from './shared/providers';
 import './styles/App.css';
 import { RouterProvider } from 'react-router';
 

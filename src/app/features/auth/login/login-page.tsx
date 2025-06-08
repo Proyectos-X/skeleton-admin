@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui';
-import { LoginForm } from '../components/login-form';
 import GradientLayout from '@/app/layouts/gradient-layout';
+import { LoginForm } from './components/login-form';
 
 const LoginPage = () => {
   return (
